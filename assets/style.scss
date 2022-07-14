@@ -1,0 +1,145 @@
+@import "_variables";
+@import "_mixins";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+// Style de la page d'acceuil
+.acceuil{
+    @include page;
+    @include imageback;
+    background-image: url("page1.png");
+    display: flex;
+    flex-direction: column;
+    
+    // style de la navbar
+    &__nav{
+        flex: 0.5 1 auto;
+        display: flex;
+        justify-content: space-between;
+        margin: 5% 5% 0;
+        &__image{
+            align-self: flex-start;
+        }
+        &__item{
+            display: none;
+        }      
+    }
+    // style du tire et de la fléche (encore à faire)
+    
+     &__titre{
+        flex: 2 1 auto;
+        align-self: center;
+        text-align: center;
+        @include titre;
+     }
+    } 
+// style de la deuxième page, image + explications
+
+
+.contenu{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    &__oeuf{
+        @include secondPageMobile;
+        @include test;
+    }
+    &__verre{
+        @include secondPageMobile;
+        @include test;
+    }
+    &__division{
+        &__cerise{
+            background-image: url("cerise.png");
+            @include ceriseOrange;
+             
+        }
+        &__orange{
+            background-image: url("orange.png");
+            @include ceriseOrange;
+            
+        }
+    }
+}
+
+// style de la troisième page, testimonies
+
+.testimonies{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    &__titre{
+        height: 20%;
+        flex: 0.5 1 auto;
+    }
+    &__ok{
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        &__person{
+            
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            &__para{
+                text-align: center;
+                align-self: center;
+            }
+            &__container{
+                align-self: center;
+                width: 72px;
+                height: 72px;
+            }
+        }
+    }
+}
+
+// style de la dernière page, images + footer
+
+.lastpage{
+    height: 100vh;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    &__pictures{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        &__container{
+            width: 50%;
+            height: auto;
+            &__image{
+                max-width: 100%;                
+            }
+        }
+    }
+    &__fin{
+        height: 50%;
+    }
+}
+
+
+// style pour la version dekstop
+
+@media screen and (min-width: 450px){
+    // first page home responsive
+    @include acceuil__dekstop;
+
+    //second page image + text
+    @include secondPageDekstop;
+
+    //Testimonies
+    @include testimoniesDekstop;
+
+    // last page picture responsive
+    @include lastPagePicturesDekstop;
+}

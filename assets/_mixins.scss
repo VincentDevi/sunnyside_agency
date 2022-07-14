@@ -1,0 +1,245 @@
+@import "_variables";
+// Mixins
+@mixin page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+@mixin imageback {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+@mixin titre {
+    font-family: $font-title;
+    font-size: $font-size-h1;
+    line-height: $line-height-title;
+    font-weight: $font-weight-title;
+    letter-spacing: $letter-spaTitre;
+    text-transform: uppercase;
+
+}
+// Mobile version, sencond page egg and glass
+
+@mixin secondPageMobile {
+    &__container{
+        max-width: 100vh;
+        &__image{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+@mixin test{
+    &__texte{
+        height: 437px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        &__titre{
+            text-align: center;
+            font-family: $font-title;
+            font-size: $font-size-h2;
+            line-height: $line-height-h2;
+            font-weight: $font-weight-title;
+        }
+        &__para{
+            text-align: center;
+            font-family: $font-texte;
+            font-size: $font-size-texte;
+            line-height: $line-height-texte;
+            font-weight: $font-weight-texte;
+        }
+        &__link{
+            font-size: 15px;
+            font-family: $font-texte;
+            font-weight: $font-weight-title;
+            text-transform: uppercase;
+        }
+    }
+}
+@mixin ceriseOrange {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    @include imageback;
+    &__titre{
+        text-align: center;
+        margin-bottom: 10%;
+    }
+    &__para{
+        text-align: center;
+        margin-bottom: 10%;
+    }
+}
+
+
+
+
+// Mixin for the responsive design, dekstop version 
+
+@mixin acceuil__dekstop {
+    .acceuil{
+        @include page;
+        @include imageback;
+        background-image: url("page1.png");
+
+        &__nav{
+            display: flex;
+            
+            &__image{
+                align-self: flex-start;
+            }
+            &__list{
+                contain: content;
+                width: 40%;
+                display: flex;
+                justify-content: space-between;
+            }
+            &__item{
+                display: block;
+                
+            }
+            &__menu{
+                display: none;
+            }
+        }
+    }
+}
+    //second page
+@mixin secondPageDekstop {
+    .contenu{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        &__oeuf{
+            display: flex;
+            flex-direction: row-reverse;
+            &__container{
+                max-width: 50%;
+                &__image{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &__texte{
+                max-width: 50%;
+                &__para{
+                    text-align: left;
+                }
+                &__titre{
+                    text-align: left;
+                }
+                &__link{
+                    align-self: flex-start;
+                    text-align: left;
+                }
+            }
+        }
+        &__verre{
+            display: flex;
+            flex-direction: row;
+            &__container{
+                max-width: 50%;
+                &__image{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &__texte{
+                max-width: 50%;
+                &__para{
+                    text-align: left;
+                }
+                &__titre{
+                    text-align: left;
+                }
+                &__link{
+                    text-align: left;
+                    align-self: flex-start;
+                }
+            }
+        }
+        
+    
+        &__division{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            &__cerise{
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+            }
+            &__orange{
+                width: 50%;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+            }
+        }
+    
+    }
+}
+
+
+    // Testimonies
+@mixin testimoniesDekstop {
+    .testimonies{
+        
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: stretch;
+            &__titre{
+                height: 20%;
+                align-self: center;
+                flex: 0.5 1 auto;
+            }
+            &__ok{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                &__person{
+                    flex: 1 1 auto;
+                    width: 33.33%;
+
+                }
+            }
+        }
+    
+ }
+
+
+
+    // pictures on the last page
+@mixin lastPagePicturesDekstop {
+    .lastpage{
+        display: flex;
+        flex-direction: column;
+        &__pictures{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            &__container{
+                width: 25%;
+                height: auto;
+                &__image{
+                    max-width: 100%;                
+                }
+            }
+        }
+    }
+}
